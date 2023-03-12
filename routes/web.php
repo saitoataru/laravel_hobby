@@ -24,7 +24,7 @@ Route::get('/dashboard', [BookController::class,'index'])->middleware(['auth'])-
 Route::get('/good', [GoodController::class,'index'])->middleware(['auth'])->name('good');
 
 //コメント
-Route::get('/comment', [CommentController::class,"index"])->middleware(['auth'])->name('comment');
+Route::get('/comment', [CommentCotroller::class,"index"])->middleware(['auth'])->name('comment');
 
 
 

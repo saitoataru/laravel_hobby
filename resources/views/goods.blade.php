@@ -29,6 +29,7 @@
             @foreach($books as $book)
             <div class="rounded border bg-yellow-500 p-3 w-1/3">
             <x-goods id="{{$book->id}}">
+                <x-slot name="image">{{$book->image}}</x-slot>
                 <x-slot name="time">{{$book->updated_at}}</x-slot>
                 <x-slot name="title">{{$book->item_name}}</x-slot>
                 <x-slot name="number">{{$book->item_name}}</x-slot>

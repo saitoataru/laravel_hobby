@@ -38,7 +38,8 @@
 
 
             <!-- 本のタイトル -->
-            <form action="{{ url('books') }}" method="POST" class="w-full max-w-lg"　enctype="multipart/form-data">
+            <form action="{{ url('books') }}" method="POST" class="w-full max-w-lg" enctype="multipart/form-data">
+    
                 @csrf
                   <div class="flex flex-col px-2 py-2">
                    <!-- カラム１ -->
@@ -70,7 +71,7 @@
                       <input name="published" type="date" class="appearance-none block w-full text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="">
                     </div>
                   </div>
-                  <!-- カラム5 -->
+                  <!-- 画像の保存 -->
                   <div class="w-full md:w-1/1 px-3 mb-6 md:mb-0">
                         <label class="block text-sm font-medium mb-2">画像</label>
                         <div class="flex items-end">

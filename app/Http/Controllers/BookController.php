@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use Illuminate\Http\Request;
+// use Illuminate\Support\Facades\Storage;
 use Validator;
 use Auth;
 
@@ -17,7 +18,7 @@ class BookController extends Controller
     public function index()
     {
 				//自分のuser_idが付与されている投稿だけ取得する
-        $books = Book::where('user_id',Auth::id())->orderBy('created_at', 'asc')->paginate(3);
+        $books = Book::where('user_id',Auth::id())->orderBy('created_at', 'asc')->get();
         return view('books', [
             'books' => $books
         ]);
@@ -61,10 +62,12 @@ class BookController extends Controller
 	    $books->updated_at   = $request->updated_at;
 	    $books->image   = $request->image;
 	    $books->user_id = Auth::id();
+	   // dd($request->all());
+	   // dd($request->file('image'));
 	    
-	   // $savedImagePath = $request->file('image')->store('blogs','public');
+	    $savedImagePath = $request->file('image')->store('image','public');
      
-    //     $books->image =$savedImagePath;
+        $books->image =$savedImagePath;
        
         $books->save(); 
 	    return redirect('/');
